@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.padcmyanmar.padc9.housebuyingapp.activities.HouseDetailsImageViewItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_detail_west_minister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_image"
+        android:scaleType="centerCrop" />
+
+</com.padcmyanmar.padc9.housebuyingapp.activities.HouseDetailsImageViewItem>
