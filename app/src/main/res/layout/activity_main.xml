@@ -11,17 +11,36 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_search"
-            android:layout_width="270dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium_2"
             android:layout_marginTop="@dimen/margin_medium">
 
-            <androidx.appcompat.widget.SearchView
+            <!--<androidx.appcompat.widget.SearchView
                 android:id="@+id/search"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
                 app:queryHint="@string/search_box_hint"
-                app:iconifiedByDefault="false" />
+                app:iconifiedByDefault="false" />-->
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/et_location"
+                android:inputType="text"
+                android:background="@drawable/bg_butttom"
+                android:paddingLeft="4dp"
+                android:hint="Type your location address"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="15dp"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:id="@+id/ic_search"
+                android:src="@drawable/search"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -44,11 +63,11 @@
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_alignTop="@id/iv_view_stream_horizontal"/>
 
-        <ImageView
+        <ImageButton
             android:id="@+id/iv_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_help_black_24dp"
+            android:src="@drawable/ic_location"
             android:layout_toEndOf="@+id/iv_view_stream_vertical"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_alignTop="@+id/iv_view_stream_vertical"/>

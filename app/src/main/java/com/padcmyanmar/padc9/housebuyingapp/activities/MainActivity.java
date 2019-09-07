@@ -3,7 +3,10 @@ package com.padcmyanmar.padc9.housebuyingapp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.SearchView;
 
 
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -38,7 +41,7 @@ public class MainActivity extends BaseActivity implements EventItemDelegate, Top
         setContentView(R.layout.activity_main);
 
         hori = findViewById(R.id.iv_view_stream_horizontal);
-        ver= findViewById(R.id.iv_view_stream_vertical);
+        ver = findViewById(R.id.iv_view_stream_vertical);
         hori.setOnClickListener(this);
         ver.setOnClickListener(this);
 
@@ -50,7 +53,15 @@ public class MainActivity extends BaseActivity implements EventItemDelegate, Top
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false));
         recyclerView.setAdapter(adapter);
 
-
+        final EditText textSearch = findViewById(R.id.et_location);
+        ImageView search = findViewById(R.id.ic_search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchWord = textSearch.getText().toString();
+                onSearchFilter(searchWord);
+            }
+        });
 
         houseModel.getEvent(new EventModel.GetEventFromDataLayerDelegate() {
             @Override

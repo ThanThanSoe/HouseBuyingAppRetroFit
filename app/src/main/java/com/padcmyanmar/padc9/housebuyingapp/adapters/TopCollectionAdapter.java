@@ -21,8 +21,6 @@ public class TopCollectionAdapter extends BaseRecyclerAdapter<TopCollectionViewH
     @NonNull
     @Override
     public TopCollectionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        /*View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.top_collection_item_view,parent,false);
-        return new TopCollectionViewHolder(view,mEventItemDelegate);*/
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.top_collection_item_view, parent, false);
         return new TopCollectionViewHolder(itemView, mEventItemDelegate);
     }
