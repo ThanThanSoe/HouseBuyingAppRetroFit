@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,7 +30,7 @@
                 android:paddingLeft="4dp"
                 android:hint="Type your location address"
                 android:textColor="@android:color/darker_gray"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/margin_medium"
                 />
             <ImageView
                 android:layout_width="wrap_content"
@@ -52,7 +51,7 @@
             android:layout_toEndOf="@+id/cv_search"
             android:layout_alignTop="@+id/cv_search"
             android:layout_marginTop="@dimen/margin_medium"
-            android:layout_marginStart="@dimen/margin_medium"/>
+            android:layout_marginLeft="@dimen/margin_medium"/>
 
         <ImageButton
             android:id="@+id/iv_view_stream_vertical"
@@ -60,17 +59,17 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_view_week_black_24dp"
             android:layout_toEndOf="@+id/iv_view_stream_horizontal"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:layout_alignTop="@id/iv_view_stream_horizontal"/>
+            android:layout_alignTop="@id/iv_view_stream_horizontal"
+            />
 
         <ImageButton
             android:id="@+id/iv_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_location"
+            android:src="@drawable/ic_home"
             android:layout_toEndOf="@+id/iv_view_stream_vertical"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:layout_alignTop="@+id/iv_view_stream_vertical"/>
+            android:layout_alignTop="@+id/iv_view_stream_vertical"
+            />
 
 
         <androidx.recyclerview.widget.RecyclerView

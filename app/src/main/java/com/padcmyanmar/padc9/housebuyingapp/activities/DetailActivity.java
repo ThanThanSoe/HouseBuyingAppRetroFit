@@ -2,6 +2,7 @@ package com.padcmyanmar.padc9.housebuyingapp.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
+
+import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.padcmyanmar.padc9.housebuyingapp.R;
 import com.padcmyanmar.padc9.housebuyingapp.adapters.HouseDetailsImageAdapter;
 import com.padcmyanmar.padc9.housebuyingapp.data.vos.HouseRentingVO;
@@ -42,6 +46,12 @@ public class DetailActivity extends BaseActivity {
     @BindView(R.id.vp_details_images)
     ImageView vpDetailsImage;
 
+    @BindView(R.id.fab_near_me)
+    FloatingActionButton favNearMe;
+
+    @BindView(R.id.tv_no_of_bed_rooms)
+    MMTextView noOfBedRooms;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,12 +72,24 @@ public class DetailActivity extends BaseActivity {
 
         int houseId = getIntent().getIntExtra(EXTERNAL_HOUSE_ID,0);
 
-        HouseRentingVO houseVO = houseModel.findHouseById(houseId);
+        final HouseRentingVO houseVO = houseModel.findHouseById(houseId);
         bindData(houseVO);
+
+        favNearMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String location = Uri.encode(String.valueOf(houseVO.getLatitude())+","+String.valueOf(houseVO.getLongitude()));
+
+                Intent intent = new Intent(Intent.ACTION_VIEW,  Uri.parse("https://www.google.com/maps/dir/?api=1&destination=" + location +"&travelmode=driving"));
+                startActivity(intent);
+            }
+        });
 
     }
 
     private void bindData(HouseRentingVO data){
+        Glide.with(vpDetailsImage.getContext())
+                .load(data.getHouseImageUrl()).into(vpDetailsImage);
         tvAddress.setText(data.getAddress());
         tvPrice.setText(String.valueOf(data.getPrice()));
         tvSqFt.setText(String.valueOf(data.getSquareFeet()));

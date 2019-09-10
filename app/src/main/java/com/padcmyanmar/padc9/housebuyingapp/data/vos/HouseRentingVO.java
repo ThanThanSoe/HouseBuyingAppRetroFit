@@ -1,35 +1,61 @@
 package com.padcmyanmar.padc9.housebuyingapp.data.vos;
 
-import com.google.gson.annotations.SerializedName;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
+import com.google.gson.annotations.SerializedName;
+@Entity(tableName = "house", indices = {@Index(value = "id", unique = true)})
 public class HouseRentingVO {
 
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "house_id_pk")
+    private int houseIdPK;
+
     @SerializedName("id")
+    @ColumnInfo(name = "id")
     private int id;
 
     @SerializedName("house_image_url")
+    @ColumnInfo(name = "house_image_url")
     private String houseImageUrl;
 
     @SerializedName("name")
+    @ColumnInfo(name = "name")
     private String name;
 
     @SerializedName("description")
+    @ColumnInfo(name = "description")
     private String description;
 
     @SerializedName("price")
+    @ColumnInfo(name = "price")
     private long price;
 
     @SerializedName("address")
+    @ColumnInfo(name = "address")
     private String address;
 
     @SerializedName("square_feet")
+    @ColumnInfo(name = "square_feet")
     private int squareFeet;
 
     @SerializedName("latitude")
+    @ColumnInfo(name = "latitude")
     private float latitude;
 
     @SerializedName("longitude")
+    @ColumnInfo(name = "longitude")
     private float longitude;
+
+    public int getHouseIdPK() {
+        return houseIdPK;
+    }
+
+    public void setHouseIdPK(int houseIdPK) {
+        this.houseIdPK = houseIdPK;
+    }
 
     public int getId() {
         return id;
